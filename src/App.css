@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+html,body {
+  margin:0;
+  padding:0;
+  height:100%;
+  background-color:#455a64 !important;
+  color: white !important;
+
+}
+
+.word{
+  letter-spacing: 5px;
+}
+
+.centralPanel{
+  margin-top: 50px;
+}
+
+.letterButton{
+  margin: 5px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
