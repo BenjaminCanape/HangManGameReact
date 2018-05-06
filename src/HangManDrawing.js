@@ -47,12 +47,12 @@ class HangManDrawing extends Component {
 	 */
 	drawHangedMan(props){
 		//configuration of the canvas
-		var canvas = document.getElementById('myCanvas');
-		var context = canvas.getContext('2d');
-		context.strokeStyle = 'white';
-		context.lineWidth = 5;
+		var canvas = document.getElementById('myCanvas')
+		var context = canvas.getContext('2d')
+		context.strokeStyle = 'white'
+		context.lineWidth = 5
 
-		let canvasWidthMiddle = canvas.width / 2;
+		let canvasWidthMiddle = canvas.width / 2
 
 		context.beginPath()
 

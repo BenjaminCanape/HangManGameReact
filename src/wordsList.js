@@ -12,6 +12,6 @@ const WORDS_LIST = [
   'GERONIMO',
   'ALLONS Y',
   'I AM THE DOCTOR'
-];
+]
 
-export default WORDS_LIST;
+export default WORDS_LIST

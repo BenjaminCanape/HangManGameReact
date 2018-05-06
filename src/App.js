@@ -59,40 +59,34 @@ class App extends Component {
    * sentence: string - the sentence or the word to find
    * usedLetters: array of string - array containing the letters found
    */
-  computeDisplay = (sentence, usedLetters) => (
-    sentence.replace(/\w/g, (letter) => (usedLetters.includes(letter) ? letter : '_'))
-  )
+  computeDisplay(sentence, usedLetters){
+    return sentence.replace(/\w/g, (letter) => (usedLetters.includes(letter) ? letter : '_'))
+  }
 
   /*
-   * Check if a letter has already been click
+   * Check if a letter has already been clicked
+   * lettersClicked is an array of string - all the letters which have already been clicked
    * value is the letter (A-Z)
    */
-  hasAlreadyBeenClicked = (value) => {
-    const {lettersClicked} = this.state
+  hasAlreadyBeenClicked(lettersClicked, value){
     return lettersClicked.includes(value)
   }
 
   /*
    * Check if a letter is in the word and return how many times it has been found
    */
-  isLetterInWord = (letter, word) => (
-    word.split(letter).length - 1
-  )
+  isLetterInWord(letter, word){
+    return word.split(letter).length - 1
+  }
 
     
   /*
    * check if all the letters of the word to find have been found
    */
   hasAllLettersBeenFound(word,lettersClicked){
-    let wordLetters = word.split('')
-    return wordLetters.every((letter) => {
-      let asciiLetter = letter.charCodeAt(0)
-      if(asciiLetter >= ASCII_A && asciiLetter <= ASCII_Z){
-        return lettersClicked.includes(letter) ? true:false
-      }
-      return true
-    })
+    return this.computeDisplay(word,lettersClicked) === word
   }
+
   /*
    * handle the click on a letter
    * check if the value of the letter is found in the word
@@ -107,11 +101,10 @@ class App extends Component {
     // and the value sent must be a string A-Z
     if(!won && error<6 && ascii >= ASCII_A && ascii <= ASCII_Z){
       //the key must not have been clicked yet
-      if(!(this.hasAlreadyBeenClicked(value))){
+      if(!(this.hasAlreadyBeenClicked(lettersClicked, value))){
         //the key is added to the array of the letters clicked
         let newLettersClicked = lettersClicked
         lettersClicked.push(value)
-        this.setState({lettersClicked: newLettersClicked})
 
         //the user has made a new attempt
         let newAttempt = attempt + 1
@@ -132,7 +125,7 @@ class App extends Component {
         let newWon = this.hasAllLettersBeenFound(word,lettersClicked)
 
         //the local state is updated
-        this.setState({attempt: newAttempt, error: newError, score:newScore, won: newWon})
+        this.setState({lettersClicked: newLettersClicked, attempt: newAttempt, error: newError, score:newScore, won: newWon})
       }
     }
   }
