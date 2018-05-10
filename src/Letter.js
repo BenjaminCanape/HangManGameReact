@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button } from 'reactstrap';
-import PropTypes from 'prop-types';
+import React from "react";
+import { Button } from "reactstrap";
+import PropTypes from "prop-types";
 
 /*
  * Component Letter: It will display a simple button which will allow to execute a function onClick
@@ -19,7 +19,7 @@ const Letter = ({ value, disabled, onClick }) => (
 Letter.propTypes = {
   value: PropTypes.string.isRequired,
   disabled: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Letter;
