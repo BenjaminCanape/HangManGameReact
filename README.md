@@ -5,6 +5,10 @@ You must find a word randomly selected before the man is hanged
 
 This is the first app I created with React.js
 
+## Demo
+
+You can use this demo here: https://hangmangamereact-benjamincanape.netlify.com/
+
 ## Getting Started
 
 ### Prerequisites
